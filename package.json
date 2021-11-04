@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "npx nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -19,9 +19,18 @@
   "homepage": "https://github.com/sashanksilwal/Dynamic-Web-Fall-2021-Exercise-Four#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "firebase": "^9.2.0",
     "nodemon": "^2.0.14"
   },
   "engines": {
     "node": "14.x"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.26.1",
+    "eslint-plugin-react-hooks": "^4.2.0"
   }
 }
