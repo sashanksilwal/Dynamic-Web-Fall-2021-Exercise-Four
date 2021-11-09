@@ -9,13 +9,10 @@ const db = firestore.getFirestore();
 // const blogposts = db('blogposts');
 
 router.get('/', (req, res) => {
-  const blogposts = firestore.getDocs(firestore.collection(db, 'posts'));
+  const blogposts = firestore.getDocs(firestore.collection(db, 'blogposts'));
   const blogpostArray = [];
   blogposts
     .then((response) => {
-      // console.log('---------------------------------------');
-      // console.log(response);
-      // console.log('---------------------------------------');
       response.forEach((doc) => {
         blogpostArray.push(doc.data());
       });

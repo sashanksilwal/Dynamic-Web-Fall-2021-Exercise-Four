@@ -4,6 +4,9 @@ const app = express();
 
 const firebase = require('firebase/app');
 
+const morgan = require('morgan')
+app.use(morgan("dev"));
+
 const firebaseConfig = {
   apiKey: 'AIzaSyDpdYrBG8rvVTiuMOYgZmm5nmSXzDpkdLg',
   authDomain: 'exercise-four-fall-2021-ss.firebaseapp.com',
