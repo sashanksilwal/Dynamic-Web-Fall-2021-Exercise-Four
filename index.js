@@ -4,8 +4,9 @@ const app = express();
 
 const firebase = require('firebase/app');
 
-const morgan = require('morgan')
-app.use(morgan("dev"));
+const morgan = require('morgan');
+
+app.use(morgan('dev'));
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDpdYrBG8rvVTiuMOYgZmm5nmSXzDpkdLg',
