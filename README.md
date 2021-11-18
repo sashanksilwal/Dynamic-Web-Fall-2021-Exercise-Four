@@ -22,8 +22,83 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
- 
  ```
+ ## Boilerplate for displaying all the data from a particular collection
+ 
+```
+ 
+const firestore = require('firebase/firestore');
+
+const db = firestore.getFirestore();
+
+router.get('/', (req, res) => {
+  const blogposts = firestore.getDocs(firestore.collection(db, 'collectionName'));
+  const blogpostArray = [];
+  blogposts
+    .then((response) => {
+       ...
+      }); 
+    })
+    .catch((error) => {
+      ...
+    });
+});
+
+module.exports = router;
+```
+
+## Boilerplate for reading a data based on an id
+```
+ 
+const firestore = require('firebase/firestore');
+
+const db = firestore.getFirestore();
+
+router.get('/:id', (req, res) => {
+  const postId = req.params.id;
+  const blogpost = firestore.getDoc(firestore.doc(db, 'collectionName', postId));
+
+  blogpost
+    .then((response) => {
+      ...
+    }).catch((error) => {
+      ...
+    });
+});
+ 
+module.exports = router;
+
+```
+
+## Boilerplate for writing to the db
+
+```
+const firestore = require('firebase/firestore');
+
+const db = firestore.getFirestore();
+
+router.get('/submit', (req, res) => {
+  const queryParams = req.query;
+  const title = queryParams.articleTitle;
+  const text = queryParams.articleText;
+  const { author } = queryParams;
+
+  const idFromTitle = title.replace(/\s+/g, '-').toLowerCase();
+
+  const setBlogPost = firestore.setDoc(firestore.doc(db, 'collectionName', idOfThePost), {
+    data
+    ...
+  });
+  setBlogPost.then(() => {
+    ...
+  }).catch((err) => {
+    ...
+  });
+});
+
+module.exports = router;
+
+```
 
 ## References
 
