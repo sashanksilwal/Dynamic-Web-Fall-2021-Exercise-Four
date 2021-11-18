@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/sashanksilwal/Dynamic-Web-Fall-2021-Exercise-Four#readme",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "firebase": "^9.2.0",
     "morgan": "^1.10.0",

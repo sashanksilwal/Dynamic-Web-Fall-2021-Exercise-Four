@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config();
 
 const app = express();
 
@@ -9,12 +10,12 @@ const morgan = require('morgan');
 app.use(morgan('dev'));
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDpdYrBG8rvVTiuMOYgZmm5nmSXzDpkdLg',
-  authDomain: 'exercise-four-fall-2021-ss.firebaseapp.com',
-  projectId: 'exercise-four-fall-2021-ss',
-  storageBucket: 'exercise-four-fall-2021-ss.appspot.com',
-  messagingSenderId: '93097838686',
-  appId: '1:93097838686:web:a166e044779d5c6d584ccf',
+  apiKey: process.env.APIKEY,
+  authDomain: process.env.AUTHDOMAIN,
+  projectId: process.env.PROJECTID,
+  storageBucket: process.env.STORAGEBUCKET,
+  messagingSenderId: process.env.MESSAGINGSENDERID,
+  appId: process.env.APPID,
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -29,10 +30,12 @@ app.use('/', indexRoute);
 app.use('/article', articleRouter);
 app.use('/create', createArticleRouter);
 app.use('/help', help);
-app.get("/:anything", (req, res)=>{
+app.get('/:anything', (req, res) => {
   const url = req.params.anything;
-  res.json({error:  ` /${url} is not valid url. Please Enter a valid url. For help visit /help`})
-})
+  res.json({
+    error: ` /${url} is not valid url. Please Enter a valid url. For help visit /help`,
+  });
+});
 
 app.listen(port, () => {
   console.log(`Started listening at port ${port}`);
