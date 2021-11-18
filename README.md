@@ -5,7 +5,7 @@
 1. A deployed Node app, using firebase database
 
 ## Configuring Firestore
- ```
+ ```javascript
  
 require('dotenv').config();
 
@@ -25,7 +25,7 @@ firebase.initializeApp(firebaseConfig);
  ```
  ## Boilerplate for displaying all the data from a particular collection
  
-```
+ ```javascript
  
 const firestore = require('firebase/firestore');
 
@@ -48,7 +48,7 @@ module.exports = router;
 ```
 
 ## Boilerplate for reading a data based on an id
-```
+ ```javascript
  
 const firestore = require('firebase/firestore');
 
@@ -72,7 +72,7 @@ module.exports = router;
 
 ## Boilerplate for writing to the db
 
-```
+ ```javascript
 const firestore = require('firebase/firestore');
 
 const db = firestore.getFirestore();
